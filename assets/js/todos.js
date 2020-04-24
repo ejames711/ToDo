@@ -16,11 +16,15 @@ $("input[type='text']").keypress(function(event){
 		//grabbing new todo text from input
 		var todoText = $(this).val();
 		$(this).val("");
+		var todoDiv = $(this).parent().find("ul");
 		//create a new li and add to ul
-		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>")
+		todoDiv.append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>")
 	}
 });
 
-$(".fa-plus").click(function(){
-	$("input[type='text']").fadeToggle();
+$(".fa-plus").click(function(event){
+	var enterTodo = $(this).parent().parent().find("input");
+	enterTodo.fadeToggle();
 });
+
+//add new todo list
